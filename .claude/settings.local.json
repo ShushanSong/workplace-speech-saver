@@ -15,7 +15,13 @@
       "Bash(if not exist srccomponents mkdir srccomponents)",
       "Bash(npm run dev:*)",
       "Bash(cat:*)",
-      "Bash(pkill:*)"
+      "Bash(pkill:*)",
+      "Bash(npm run preview:*)",
+      "Bash(taskkill:*)",
+      "Skill(superpowers:finishing-a-development-branch)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)"
     ]
   }
 }
