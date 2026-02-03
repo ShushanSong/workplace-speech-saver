@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useApp } from '../contexts/AppContext'
+import { callAIModel } from '../utils/api'
 import './InputSection.css'
 
 const EXAMPLES = [
@@ -11,13 +12,39 @@ const EXAMPLES = [
 ]
 
 function InputSection() {
-  const { selectedModel, setSelectedModel, loading } = useApp()
+  const {
+    selectedModel,
+    setSelectedModel,
+    apiKeys,
+    loading,
+    setLoading,
+    setError,
+    setConversionResult,
+    addToHistory
+  } = useApp()
+
   const [input, setInput] = useState('')
 
-  const handleSubmit = () => {
-    if (input.trim()) {
-      // TODO: Trigger conversion
-      console.log('Converting:', input)
+  const handleSubmit = async () => {
+    if (!input.trim()) return
+
+    const apiKey = apiKeys[selectedModel]
+    if (!apiKey) {
+      setError('请先在设置中配置API密钥')
+      return
+    }
+
+    setLoading(true)
+    setError(null)
+
+    try {
+      const results = await callAIModel(selectedModel, apiKey, input)
+      setConversionResult(results)
+      addToHistory(input, results, selectedModel)
+    } catch (err) {
+      setError(err.message || '转换失败，请重试')
+    } finally {
+      setLoading(false)
     }
   }
 
