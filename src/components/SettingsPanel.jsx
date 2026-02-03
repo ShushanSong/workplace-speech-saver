@@ -1,4 +1,5 @@
 import { useApp } from '../contexts/AppContext'
+import { ExternalLink } from 'lucide-react'
 import './SettingsPanel.css'
 
 const API_INFO = {
@@ -56,6 +57,7 @@ function SettingsPanel() {
               rel="noopener noreferrer"
               className="api-link"
             >
+              <ExternalLink size={14} style={{ verticalAlign: 'middle', marginRight: 4 }} />
               获取API密钥 →
             </a>
           </div>
