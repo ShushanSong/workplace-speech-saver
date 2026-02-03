@@ -129,3 +129,26 @@
   text-align: center;
   color: #999;
 }
+
+/* 响应式设计 */
+
+@media (max-width: 768px) {
+  .result-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .result-card {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .result-card {
+    padding: 12px;
+  }
+
+  .card-content {
+    font-size: 0.9375rem;
+  }
+}
