@@ -24,7 +24,10 @@
       "Bash(git push:*)",
       "Bash(npm run deploy:*)",
       "Bash(git pull:*)",
-      "Bash(git rebase:*)"
+      "Bash(git rebase:*)",
+      "Skill(superpowers:test-driven-development)",
+      "Bash(if not exist \"src\\\\test\" mkdir \"src\\\\test\")",
+      "Bash(npm run test:*)"
     ]
   }
 }
